@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#BE482F">
+<title>Gathered 2026 app for Android | Hills Baptist Church</title>
+<meta name="description" content="Download and install the Gathered 2026 conference app on your Android phone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #BE482F;
+    --terracotta-dark: #9E3824;
+    --cream: #F7F4EE;
+    --sand: #EDE5D8;
+    --charcoal: #161513;
+    --muted: #5F5850;
+    --white: #FFFFFF;
+    --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.55;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  a { color: var(--terracotta); }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--charcoal);
+    outline-offset: 3px;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--terracotta);
+    color: var(--white);
+    padding: calc(28px + env(safe-area-inset-top, 0px)) 22px 40px;
+  }
+  .wrap { max-width: 620px; margin: 0 auto; }
+  .brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 14px;
+    opacity: .92;
+  }
+  .wordmark {
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    opacity: 1;
+  }
+  .hero h1 {
+    font-weight: 900;
+    font-stretch: 120%;
+    font-size: clamp(38px, 11vw, 64px);
+    line-height: .95;
+    letter-spacing: -0.02em;
+    margin: 44px 0 16px;
+    text-transform: uppercase;
+  }
+  .hero p.lead {
+    font-size: 19px;
+    margin: 0 0 28px;
+    max-width: 30em;
+  }
+  .download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 420px;
+    min-height: 64px;
+    padding: 16px 24px;
+    background: var(--white);
+    color: var(--terracotta);
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 19px;
+    text-decoration: none;
+    box-shadow: 0 6px 0 var(--terracotta-dark);
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .download:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--terracotta-dark); }
+  .download svg { flex: none; }
+  .fileinfo { font-size: 14px; margin: 16px 0 0; opacity: .9; }
+
+  .notice {
+    display: none;
+    margin: 24px 0 0;
+    padding: 14px 16px;
+    background: rgba(0,0,0,.18);
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  .notice.show { display: block; }
+
+  /* Ticker */
+  .ticker {
+    background: var(--charcoal);
+    color: var(--cream);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 12px 0;
+  }
+  .ticker-track {
+    display: inline-block;
+    font-weight: 900;
+    font-stretch: 125%;
+    font-size: 18px;
+    letter-spacing: .02em;
+    animation: slide 28s linear infinite;
+  }
+  .ticker-track span { padding: 0 18px; }
+  .ticker-track span.dot { color: var(--terracotta); padding: 0; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+
+  /* Content */
+  main { padding: 44px 22px 20px; }
+  h2 {
+    font-weight: 900;
+    font-stretch: 115%;
+    font-size: 28px;
+    line-height: 1.1;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .intro { color: var(--muted); margin: 0 0 28px; }
+
+  .safe {
+    margin: 0 0 36px;
+    padding: 20px 22px;
+    background: var(--white);
+    border: 2px solid var(--sand);
+    border-radius: 18px;
+  }
+  .safe h3 { font-size: 20px; font-weight: 800; margin: 0 0 6px; }
+  .safe p { margin: 0; }
+  .safe ul { margin: 12px 0 0; padding-left: 22px; }
+  .safe li { margin-bottom: 6px; }
+
+  ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  ol.steps > li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 30px 64px;
+  }
+  ol.steps > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: -2px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    color: var(--white);
+    font-weight: 900;
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+  }
+  ol.steps > li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 21px; top: 48px; bottom: 6px;
+    width: 2px;
+    background: var(--sand);
+  }
+  .steps h3 { font-size: 19px; font-weight: 800; margin: 6px 0 4px; line-height: 1.25; }
+  .steps p { margin: 0 0 8px; }
+  .prompt {
+    display: block;
+    margin: 10px 0 8px;
+    padding: 12px 14px;
+    background: var(--white);
+    border-left: 4px solid var(--terracotta);
+    border-radius: 0 10px 10px 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .tap { font-weight: 800; color: var(--charcoal); }
+
+  .panel {
+    margin: 18px 0 36px;
+    padding: 24px 22px;
+    background: var(--sand);
+    border-radius: 18px;
+  }
+  .panel h2 { font-size: 22px; }
+  .panel ol { margin: 12px 0 0; padding-left: 22px; }
+  .panel ol li { margin-bottom: 8px; }
+  .panel p { margin: 0; }
+
+  .after { margin: 0 0 36px; }
+  .after ul { margin: 12px 0 0; padding-left: 22px; }
+  .after li { margin-bottom: 10px; }
+
+  .help {
+    border-top: 2px solid var(--charcoal);
+    padding-top: 24px;
+    margin-bottom: 20px;
+  }
+  .help p { margin: 8px 0 0; }
+  .help a { font-weight: 700; }
+
+  footer {
+    padding: 20px 22px calc(28px + env(safe-area-inset-bottom, 0px));
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (min-width: 700px) {
+    .hero { padding-top: 40px; padding-bottom: 56px; }
+    main { padding-top: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <span class="wordmark">gathered.</span>
+      <span>Hills Baptist Church</span>
+    </div>
+
+    <h1>Get the app on Android</h1>
+    <p class="lead">Schedule, electives, speakers, kids and youth info and more for Gathered 2026, 9–11 October. Free, and it works offline once installed.</p>
+
+    <a class="download" id="download"
+       href="https://github.com/Adrian-Francis/gathered-2026-android/releases/latest/download/gathered-2026.apk">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg>
+      Download the app
+    </a>
+    <p class="fileinfo">Android phones only. About 33 MB, so wifi is best.</p>
+
+    <p class="notice" id="iphone">You're on an iPhone or iPad. Search for <strong>Gathered 2026</strong> in the App Store instead.</p>
+    <p class="notice" id="desktop">Open this page on your Android phone to install the app. You can scan the QR code or type in the address.</p>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>ONE CHURCH</span><span class="dot">◆</span><span>ONE BODY</span><span class="dot">◆</span><span>ONE FAMILY</span><span class="dot">◆</span>
+    <span>ONE CHURCH</span><span class="dot">◆</span><span>ONE BODY</span><span class="dot">◆</span><span>ONE FAMILY</span><span class="dot">◆</span>
+    <span>ONE CHURCH</span><span class="dot">◆</span><span>ONE BODY</span><span class="dot">◆</span><span>ONE FAMILY</span><span class="dot">◆</span>
+    <span>ONE CHURCH</span><span class="dot">◆</span><span>ONE BODY</span><span class="dot">◆</span><span>ONE FAMILY</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <h2>How to install</h2>
+    <p class="intro">Because the app comes straight from us rather than the Play Store, your phone will ask for permission once. The exact wording varies a little between phones.</p>
+
+    <section class="safe" aria-labelledby="safe">
+      <h3 id="safe">Is this safe?</h3>
+      <p>Yes. Android shows these warnings for any app that doesn't come from the Play Store, not because anything is wrong with this one. Gathered 2026 was built by Hills Baptist Church and simply shows information about the conference: the schedule, electives, speakers, kids and youth details, venue and merch.</p>
+      <ul>
+        <li>No sign-in, and it doesn't collect any personal information.</li>
+        <li>It doesn't ask for access to your contacts, photos, camera, microphone or location.</li>
+        <li>It can't make purchases. Links like registration and the merch store open in your normal web browser.</li>
+      </ul>
+    </section>
+
+    <ol class="steps">
+      <li>
+        <h3>Download the app</h3>
+        <p>Tap <span class="tap">Download the app</span> above. If your phone asks whether to keep the file, tap <span class="tap">Download</span> or <span class="tap">Download anyway</span>.</p>
+      </li>
+      <li>
+        <h3>Open the file</h3>
+        <p>When it finishes, tap <span class="tap">Open</span> in the message that pops up. If you miss it, find <strong>gathered-2026.apk</strong> in your Downloads or Files app and tap it.</p>
+      </li>
+      <li>
+        <h3>Allow the install</h3>
+        <p>You'll probably see a message like this:</p>
+        <span class="prompt">For your security, your phone is not allowed to install unknown apps from this source.</span>
+        <p>Tap <span class="tap">Settings</span>, turn on <span class="tap">Allow from this source</span>, then tap the back arrow.</p>
+      </li>
+      <li>
+        <h3>Tap Install</h3>
+        <p>If Google Play Protect shows a warning or offers to scan the app, tap <span class="tap">More details</span> then <span class="tap">Install anyway</span>, or let it scan and then install.</p>
+      </li>
+      <li>
+        <h3>Open Gathered 2026</h3>
+        <p>Tap <span class="tap">Open</span>. The app is now on your home screen or in your app list, with the terracotta gathered. icon.</p>
+      </li>
+    </ol>
+
+    <section class="panel" aria-labelledby="samsung">
+      <h2 id="samsung">Samsung phones</h2>
+      <p>If the install is blocked straight away with a message about <strong>Auto Blocker</strong>:</p>
+      <ol>
+        <li>Open <strong>Settings</strong>, then <strong>Security and privacy</strong>, then <strong>Auto Blocker</strong>.</li>
+        <li>Turn Auto Blocker <strong>off</strong>.</li>
+        <li>Go back and install the app using the steps above.</li>
+        <li>Turn Auto Blocker back <strong>on</strong> afterwards.</li>
+      </ol>
+    </section>
+
+    <section class="after" aria-labelledby="after">
+      <h2 id="after">Once it's installed</h2>
+      <ul>
+        <li>You can switch <strong>Allow from this source</strong> off again in Settings, under Apps, your browser, then Install unknown apps. The app keeps working.</li>
+        <li>Everything is stored on your phone, so the app works even without reception at the venue.</li>
+      </ul>
+    </section>
+
+    <section class="help" aria-labelledby="help">
+      <h2 id="help">Need a hand?</h2>
+      <p>Come to the info desk at Gathered and we'll help you get set up.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hills Baptist Church</span>
+    <a href="https://www.hillsbaptist.com/gathered">About Gathered 2026</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var ua = navigator.userAgent || "";
+    var isAndroid = /Android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    if (isIOS) {
+      document.getElementById("iphone").classList.add("show");
+    } else if (!isAndroid) {
+      document.getElementById("desktop").classList.add("show");
+    }
+  })();
+</script>
+</body>
+</html>
